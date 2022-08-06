@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QMainWindow>
+#include <QApplication>
 #include <QMenu>
 #include <QMenuBar>
 #include <QToolBar>
@@ -14,6 +15,11 @@
 #include <QSplitter>
 #include <QShortcut>
 #include <QKeySequence>
+#include <QFile>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QRegularExpression>
+#include <QGraphicsPixmapItem>
 
 class MainWindow : public QMainWindow
 {
@@ -27,6 +33,7 @@ private:
     void initUI();
     void createActions();
     void setupShortcuts();
+    void showImage(QString);
 
 private:
     QMenu *fileMenu;
@@ -46,6 +53,14 @@ private:
     QAction *saveImageAsAction;
     QAction *saveTextAsAction;
     QAction *exitAction;
+
+    QString currentImagePath;
+    QGraphicsPixmapItem *currentImage;
+
+private slots:
+    void openImage();
+    void saveImageAs();
+    void saveTextAs();
 };
 
 #endif
