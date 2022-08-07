@@ -22,3 +22,10 @@ DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs depr
 # Input
 HEADERS += mainwindow.h
 SOURCES += main.cpp mainwindow.cpp
+
+unix: {
+    INCLUDEPATH += /opt/tesseract/include
+    LIBS += -L/opt/tesseract/lib -ltesseract
+}
+
+DEFINES += TESSDATA_PREFIX=\\\"/opt/tesseract/share/tessdata/\\\"

@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include <QRegularExpression>
 #include <QGraphicsPixmapItem>
+#include "tesseract/baseapi.h"
 
 class MainWindow : public QMainWindow
 {
@@ -53,14 +54,18 @@ private:
     QAction *saveImageAsAction;
     QAction *saveTextAsAction;
     QAction *exitAction;
+    QAction *ocrAction;
 
     QString currentImagePath;
     QGraphicsPixmapItem *currentImage;
+
+    tesseract::TessBaseAPI *tesseractAPI;
 
 private slots:
     void openImage();
     void saveImageAs();
     void saveTextAs();
+    void extractText();
 };
 
 #endif
